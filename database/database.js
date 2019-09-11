@@ -15,4 +15,4 @@ const Menu = conn.model('Menu', menuSchema);
 
 const findMenu = (id) => Menu.find({ id });
 
-module.exports = { findMenu };
+module.exports = { findMenu, Menu };

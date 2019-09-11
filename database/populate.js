@@ -34,3 +34,5 @@ conn.collection('menus').drop(
     });
   },
 );
+
+module.exports = { Menu, mongoose };
