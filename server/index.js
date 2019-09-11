@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const compression = require('compression');
 const db = require('../database/database.js');
 
-const { findMenu, Menu, mongoose } = db;
+const { findMenu, Menu } = db;
 const app = express();
 const port = 3004;
 
