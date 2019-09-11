@@ -4,13 +4,13 @@ const Chance = require('chance');
 
 const chance = Chance();
 
-const mealOptions = ['Cocktails', 'Bar', 'Dinner', 'Brunch', 'Cheese', 'Lunch', 'Dessert'];
+const mealOptions = ['Dinner', 'Brunch', 'Lunch'];
 
-const foodCategories = ['Raw Bar', 'Snacks', 'Appetizers', 'Cheese', 'Absinthe Classics', 'Entrees', 'Sides', 'Small Plates', 'Soups & Salads', 'Pastries', 'Main', 'Desserts', 'After-dinner Spirits', 'Selection of Brandy', 'Selected Single-malt Scotches', 'Port, Sherry, & Madeira', 'Dessert Wines', 'Selection of Tea', 'Cocktails'];
+const foodCategories = ['Appetizers', 'Sides', 'Main', 'Desserts', 'Cocktails'];
 
 const createMenu = (id) => {
   const rngArr = (array, max) => chance.pickset(array, chance.integer({ min: 1, max }));
-  const rng = () => chance.integer({ min: 4, max: 12 });
+  const rng = () => chance.integer({ min: 2, max: 5 });
   const createDish = () => {
     const desc = faker.lorem.sentence();
     const dish = {
