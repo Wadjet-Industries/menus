@@ -37,7 +37,7 @@ npm install -g webpack
 npm install
 ```
 ## Development
-GET: '/api/:L/menu'
-POST: '/api/:L/menu'
-PUT: '/api/:L/menu'
-DELETE: '/api/:L/menu'
+- GET: '/api/:L/menu'
+- POST: '/api/:L/menu'
+- PUT: '/api/:L/menu'
+- DELETE: '/api/:L/menu'
