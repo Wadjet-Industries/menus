@@ -32,10 +32,12 @@ class Menu extends React.Component {
 
   // get menu data from server
   getMenuData() {
-    const id = window.location.pathname.split('/')[1].slice(1);
-    $.get(`http://ec2-18-219-139-83.us-east-2.compute.amazonaws.com:3004/api/${id === undefined ? '1' : id}/menu`, (result) => {
-      this.setState({ menu: result[0] },
-        () => { this.handleViewChange(this.getMealOptionList()[0]); });
+    const id = window.location.pathname.split('/')[1];
+    $.get(`http://localhost:3004/api/${id === undefined ? '1' : id}/menu`, (result) => {
+      this.setState({
+        menu: result[0],
+        selectedMealOption: Object.keys(result[0])[0]
+      });
     });
   }
 

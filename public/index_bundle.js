@@ -172,12 +172,11 @@ function (_React$Component) {
     value: function getMenuData() {
       var _this2 = this;
 
-      var id = window.location.pathname.split('/')[1].slice(1);
-      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://ec2-18-219-139-83.us-east-2.compute.amazonaws.com:3004/api/".concat(id === undefined ? '1' : id, "/menu"), function (result) {
+      var id = window.location.pathname.split('/')[1];
+      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://localhost:3004/api/".concat(id === undefined ? '1' : id, "/menu"), function (result) {
         _this2.setState({
-          menu: result[0]
-        }, function () {
-          _this2.handleViewChange(_this2.getMealOptionList()[0]);
+          menu: result[0],
+          selectedMealOption: Object.keys(result[0])[0]
         });
       });
     } // handles button click changing states
