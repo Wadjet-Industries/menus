@@ -5,12 +5,13 @@ const fs = require('fs');
 const zlib = require('zlib');
 const readline = require('readline');
 const stream = require('stream');
+// const { createMenu, createDishes } = require('./menuData.js');
 
 const models = ExpressCassandra.createClient({
   clientOptions: {
     contactPoints: ['127.0.0.1'],
     protocolOptions: { port: 9042 },
-    keyspace: 'mykeyspace',
+    keyspace: 'sdcMenus',
     queryOptions: { consistency: ExpressCassandra.consistencies.one },
   },
   ormOptions: {
@@ -22,26 +23,73 @@ const models = ExpressCassandra.createClient({
   },
 });
 
-const Menu = models.loadSchema('Menu', {
+// const Menu = models.loadSchema('menu', {
+//   fields: {
+//     id: 'bigint',
+//     mealOptions: {
+//       type: 'list',
+//       typeDef: '<mealOptions>',
+//     },
+//   },
+//   key: ['id'],
+// });
+
+const Dishes = models.loadSchema('dishes', {
   fields: {
-    id: 'int',
-    Brunch: 'text',
-    Lunch: 'text',
-    Dinner: 'text',
+    resId: 'bigint',
+    name: 'text',
+    desc: 'text',
+    price: 'float',
+    category: 'text',
+    mealOption: 'text',
   },
-  key: ['id'],
+  key: ['resId', 'name'],
 });
 
-// sync the schema definition with the cassandra database table
-// if the schema has not changed, the callback will fire immediately
-// otherwise express-cassandra will try to migrate the schema and fire the callback afterwards
-Menu.syncDB((err) => {
+// Menu.syncDB((err) => {
+//   if (err) throw err;
+
+//   const newMenu = new models.instance.Menu(createMenu());
+
+//   newMenu.save((error) => {
+//     if (error) {
+//       console.log('this is save error', error);
+//     }
+//   });
+
+//   // function readLines({ input }) {
+//   //   const output = new stream.PassThrough({ objectMode: true });
+//   //   const rl = readline.createInterface({ input });
+//   //   rl.on('line', (line) => {
+//   //     output.write(line);
+//   //   });
+//   //   rl.on('close', () => {
+//   //     output.push(null);
+//   //     // setTimeout(() => models.close(), 300000);
+//   //   });
+//   //   return output;
+//   // }
+//   // const input = fs.createReadStream('data.json.gz').pipe(zlib.createGunzip());
+//   // (async () => {
+//   //   for await (const line of readLines({ input })) {
+//   //     const object = JSON.parse(line);
+//   //     if (object.id % 1000 === 0) {
+//   //       console.log(object.id);
+//   //     }
+
+//   //     const newMenu = new models.instance.Menu(object);
+
+//   //     newMenu.save((error) => {
+//   //       if (error) {
+//   //         console.log('this is save error', error);
+//   //       }
+//   //     });
+//   //   }
+//   // })();
+// });
+
+Dishes.syncDB((err) => {
   if (err) throw err;
-  // console.log(result);
-  // result == true if any database schema was updated
-  // result == false if no schema change was detected in your models
-  // models.instance.Menu.truncate(
-  //   () => {
   // const n = 1;
   // console.log(`line: ${n}`);
 
@@ -53,27 +101,34 @@ Menu.syncDB((err) => {
     });
     rl.on('close', () => {
       output.push(null);
-      // setTimeout(() => models.close(), 300000);
+      // setTimeout(() => models.close(), 60000);
     });
     return output;
   }
-  const input = fs.createReadStream('data.json.gz').pipe(zlib.createGunzip());
+  const input = fs.createReadStream('newdata.json.gz').pipe(zlib.createGunzip());
   (async () => {
     for await (const line of readLines({ input })) {
-      const object = JSON.parse(line);
-      if (object.id % 1000 === 0) {
-        console.log(object.id);
-      }
-
-      const newMenu = new models.instance.Menu(object);
-
-      newMenu.save((error) => {
-        if (error) {
-          console.log('this is save error', error);
-        }
-      });
+      // if (line.resId % 10 === 0) {
+      console.log(line,
+        // {
+        // resId: line.resId,
+        // name: line.name,
+        // desc: line.desc,
+        // price: line.price,
+        // category: line.category,
+        // mealOption: line.mealOption,
+        // }
+      );
+      // }
+      // const object = JSON.parse(line);
+      // if (object.id % 1000 === 0) {
+      //   console.log(object.id);
+      // }
+      // Menu.create(object, (err) => {
+      //   if (err) {
+      //     console.log('this is create error', err);
+      //   }
+      // });
     }
   })();
-  //   },
-  // );
 });

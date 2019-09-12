@@ -10,7 +10,7 @@ const foodCategories = ['Appetizers', 'Sides', 'Main', 'Desserts', 'Drinks'];
 
 // removed id parameter
 const createMenu = (id) => {
-  const rngArr = (array, max) => chance.pickset(array, chance.integer({ min: 1, max }));
+  const rngArr = (array, max) => chance.pickset(array, chance.integer({ min: 2, max }));
   const rng = () => chance.integer({ min: 2, max: 5 });
   const createDish = () => {
     const name = faker.lorem.word(); // this was not here
@@ -66,9 +66,42 @@ const createMenu = (id) => {
   return createAMenu();
 };
 
+const createDish = (id) => {
+  const name = faker.lorem.word(); // this was not here
+  const desc = faker.lorem.sentence();
+  const price = chance.floating({ min: 5, max: 200, fixed: 2 });
+  const category = chance.pickone(foodCategories);
+  const mealOption = chance.pickone(mealOptions);
+  const dish = {
+    resId: id,
+    name,
+    desc,
+    price,
+    category,
+    mealOption,
+  };
+  return dish;
+};
+
+const createDishes = (id) => {
+  const rng = chance.integer({ min: 10, max: 20 });
+  const result = [];
+  for (let i = 0; i < rng; i++) {
+    result.push(createDish(id));
+  }
+  return result;
+};
+
+
 // for (let i = 0; i < 2; i++) {
 //   console.log(createMenu(i));
 //   console.log(JSON.stringify(createMenu(i)));
 // }
 
-module.exports = { createMenu };
+// for (let i = 0; i < 2; i++) {
+//   const dishes = createDishes(i);
+//   console.log(dishes);
+//   console.log(dishes.length);
+// }
+
+module.exports = { createMenu, createDishes };
