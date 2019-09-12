@@ -36,7 +36,7 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
-## Development
+## CRUD Endpoints
 - GET: '/api/:L/menu'
 - POST: '/api/:L/menu'
 - PUT: '/api/:L/menu'
