@@ -35,15 +35,15 @@ const Menu = models.loadSchema('Menu', {
 // sync the schema definition with the cassandra database table
 // if the schema has not changed, the callback will fire immediately
 // otherwise express-cassandra will try to migrate the schema and fire the callback afterwards
-Menu.syncDB((err, result) => {
+Menu.syncDB((err) => {
   if (err) throw err;
-  console.log(result);
+  // console.log(result);
   // result == true if any database schema was updated
   // result == false if no schema change was detected in your models
   // models.instance.Menu.truncate(
   //   () => {
-  const n = 1;
-  console.log(`line: ${n}`);
+  // const n = 1;
+  // console.log(`line: ${n}`);
 
   function readLines({ input }) {
     const output = new stream.PassThrough({ objectMode: true });
@@ -53,16 +53,16 @@ Menu.syncDB((err, result) => {
     });
     rl.on('close', () => {
       output.push(null);
-      setTimeout(() => models.close(), 300000);
+      // setTimeout(() => models.close(), 300000);
     });
     return output;
   }
-  const input = fs.createReadStream('data1000.json.gz').pipe(zlib.createGunzip());
+  const input = fs.createReadStream('data.json.gz').pipe(zlib.createGunzip());
   (async () => {
     for await (const line of readLines({ input })) {
       const object = JSON.parse(line);
-      if (object.id % 1 === 0) {
-        console.log(object);
+      if (object.id % 1000 === 0) {
+        console.log(object.id);
       }
 
       const newMenu = new models.instance.Menu(object);
