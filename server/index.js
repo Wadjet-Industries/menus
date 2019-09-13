@@ -7,7 +7,7 @@ const db = require('../database/database.js');
 const query = require('../database/query.js');
 
 const { Menu } = db;
-const { getMenu } = query;
+const { getMenu, postMenu, updateMenu } = query;
 const app = express();
 const port = 3004;
 
@@ -26,33 +26,34 @@ app.use((req, res, next) => {
 
 app.get('/api/:L/menu', (req, res) => {
   const menuId = Number(req.params.L);
-  getMenu(menuId, (result) => {
+  getMenu(menuId, (err, result) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
     res.send(result);
   });
 });
 
 app.post('/api/:L/menu', (req, res) => {
-  const menuId = req.params.L;
-  req.body.id = menuId;
-  Menu.create(req.body, (err) => {
+  req.body.resid = Number(req.params.L);
+  postMenu(req.body, (err, result) => {
     if (err) {
-      console.log('this is post error', err);
-    } else {
-      console.log('finished posting');
-      res.send('finished posting');
+      console.log('post error', err);
+      return;
     }
+    res.send(result);
   });
 });
 
 app.put('/api/:L/menu', (req, res) => {
-  const id = req.params.L;
-  Menu.updateOne({ id }, req.body, (err) => {
+  const id = Number(req.params.L);
+  updateMenu(id, req.body, (err, result) => {
     if (err) {
-      console.log('this is put error', err);
-    } else {
-      console.log('finished updating');
-      res.send('finished updating');
+      console.log(err);
+      return;
     }
+    res.send(result);
   });
 });
 

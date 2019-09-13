@@ -1,15 +1,4 @@
 /* eslint-disable no-plusplus */
-// const cassandra = require('cassandra-driver');
-
-// const client = new cassandra.Client({
-//   contactPoints: ['127.0.0.1'],
-//   localDataCenter: 'datacenter1',
-//   keyspace: '"scdMenus"',
-// });
-
-// const query = 'SELECT * FROM dishes WHERE resid = ?';
-// client.execute(query, [10000000])
-//   .then((result) => console.log(result));
 const ExpressCassandra = require('express-cassandra');
 
 const models = ExpressCassandra.createClient({
@@ -43,10 +32,11 @@ const Dishes = models.loadSchema('dishes', {
 
 const getMenu = (resid, callback) => {
   models.instance.dishes.find({ resid }, { raw: true }, (err, results) => {
-    if (err) throw err;
+    if (err) {
+      callback(err);
+    }
     const result = {};
     for (let i = 0; i < results.length; i++) {
-      // console.log(results[i]);
       const {
         name,
         description,
@@ -68,23 +58,43 @@ const getMenu = (resid, callback) => {
           };
         }
       } else {
-        // console.log(mealoption);
         result[mealoption] = {};
         result[mealoption][category] = {};
         result[mealoption][category][name] = {
           description,
           price: price.toFixed(2),
         };
-        // console.log([result]);
       }
     }
-    // models.close();
-    callback([result]);
+    callback(null, [result]);
   });
 };
 
-// getMenu(10000000, (result) => {
-//   console.log(JSON.stringify(result));
-// });
+const postMenu = (dish, callback) => {
+  const newDish = new models.instance.dishes(dish);
+  newDish.save((err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    callback(null, result);
+  });
+};
 
-module.exports = { getMenu };
+const updateMenu = (resid, dish, callback) => {
+  const queryObject = {
+    resid,
+    name: dish.name,
+    mealoption: dish.mealoption,
+  };
+  delete dish.name;
+  delete dish.mealoption;
+  const options = { if_exists: true };
+  models.instance.dishes.update(queryObject, dish, options, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    callback(null, result);
+  });
+};
+
+module.exports = { getMenu, postMenu, updateMenu };
