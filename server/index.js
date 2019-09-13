@@ -17,14 +17,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 
 app.use(express.static('public'));
-app.use('/:L/menu', express.static('public'));
+app.use('/restaurant/:L/menu', express.static('public'));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
 
-app.get('/api/:L/menu', (req, res) => {
+app.get('/api/restaurant/:L/menu', (req, res) => {
   const menuId = Number(req.params.L);
   getMenu(menuId, (err, result) => {
     if (err) {
@@ -35,7 +35,7 @@ app.get('/api/:L/menu', (req, res) => {
   });
 });
 
-app.post('/api/:L/menu', (req, res) => {
+app.post('/api/restaurant/:L/dish', (req, res) => {
   req.body.resid = Number(req.params.L);
   postMenu(req.body, (err, result) => {
     if (err) {
@@ -46,7 +46,7 @@ app.post('/api/:L/menu', (req, res) => {
   });
 });
 
-app.put('/api/:L/menu', (req, res) => {
+app.put('/api/restaurant/:L/dish', (req, res) => {
   const id = Number(req.params.L);
   updateMenu(id, req.body, (err, result) => {
     if (err) {
@@ -57,7 +57,7 @@ app.put('/api/:L/menu', (req, res) => {
   });
 });
 
-app.delete('/api/:L/menu', (req, res) => {
+app.delete('/api/restaurant/:L/dish', (req, res) => {
   const id = req.params.L;
   Menu.deleteOne({ id }, (err) => {
     if (err) {
