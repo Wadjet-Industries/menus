@@ -37,7 +37,7 @@ npm install -g webpack
 npm install
 ```
 ## CRUD Endpoints
-- GET: '/api/:L/menu'
-- POST: '/api/:L/menu'
-- PUT: '/api/:L/menu'
-- DELETE: '/api/:L/menu'
+- GET: '/api/restaurant/:L/menu'
+- POST: '/api/restaurant/:L/dish'
+- PUT: '/api/restaurant/:L/dish'
+- DELETE: '/api/restaurant/:L/dish'
