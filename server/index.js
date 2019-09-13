@@ -4,8 +4,10 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
 const db = require('../database/database.js');
+const query = require('../database/query.js');
 
-const { findMenu, Menu } = db;
+const { Menu } = db;
+const { getMenu } = query;
 const app = express();
 const port = 3004;
 
@@ -23,20 +25,10 @@ app.use((req, res, next) => {
 });
 
 app.get('/api/:L/menu', (req, res) => {
-  const menuId = req.params.L;
-  findMenu(menuId)
-    .then((result) => {
-      const memo = [{}];
-      const entries = Object.entries(result[0]);
-      const menuData = Object.entries(entries[3][1]);
-      menuData.forEach((entry) => {
-        if (entry[0] !== 'id' && entry[0] !== '_id' && entry[0] !== '__v') {
-          // eslint-disable-next-line prefer-destructuring
-          memo[0][entry[0]] = entry[1];
-        }
-      });
-      res.send(memo);
-    });
+  const menuId = Number(req.params.L);
+  getMenu(menuId, (result) => {
+    res.send(result);
+  });
 });
 
 app.post('/api/:L/menu', (req, res) => {

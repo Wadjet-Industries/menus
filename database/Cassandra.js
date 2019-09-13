@@ -36,14 +36,14 @@ const models = ExpressCassandra.createClient({
 
 const Dishes = models.loadSchema('dishes', {
   fields: {
-    resId: 'bigint',
+    resid: 'int',
     name: 'text',
-    desc: 'text',
+    description: 'text',
     price: 'float',
     category: 'text',
-    mealOption: 'text',
+    mealoption: 'text',
   },
-  key: ['resId', 'name'],
+  key: ['resId', 'name', 'description'],
 });
 
 // Menu.syncDB((err) => {
@@ -105,30 +105,27 @@ Dishes.syncDB((err) => {
     });
     return output;
   }
-  const input = fs.createReadStream('newdata.json.gz').pipe(zlib.createGunzip());
+  const input = fs.createReadStream('csv10M.csv.gz').pipe(zlib.createGunzip());
   (async () => {
     for await (const line of readLines({ input })) {
-      // if (line.resId % 10 === 0) {
-      console.log(line,
-        // {
-        // resId: line.resId,
-        // name: line.name,
-        // desc: line.desc,
-        // price: line.price,
-        // category: line.category,
-        // mealOption: line.mealOption,
-        // }
-      );
-      // }
-      // const object = JSON.parse(line);
-      // if (object.id % 1000 === 0) {
-      //   console.log(object.id);
-      // }
-      // Menu.create(object, (err) => {
-      //   if (err) {
-      //     console.log('this is create error', err);
-      //   }
-      // });
+      const dish = line.split(',');
+      const object = {
+        resId: Number(dish[0]),
+        name: dish[1],
+        desc: dish[2],
+        price: Number(dish[3]),
+        category: dish[4],
+        mealOption: dish[5],
+      };
+      const newDishes = new models.instance.dishes(object);
+      if (object.resId % 10000 === 0) {
+        console.log(object.resId);
+      }
+      newDishes.save((erro) => {
+        if (erro) {
+          console.log('this is create error', err);
+        }
+      });
     }
   })();
 });

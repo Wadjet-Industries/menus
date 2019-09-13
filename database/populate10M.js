@@ -7,7 +7,7 @@ const zlib = require('zlib');
 // const stream = require('stream');
 
 const gzip = zlib.createGzip();
-const out = fs.createWriteStream('newdata.json.gz');
+const out = fs.createWriteStream('csv10M.csv.gz');
 
 const { createMenu, createDishes } = require('./menuData.js');
 // const stream = fs.createWriteStream('data.json', { flags: 'a' });
@@ -39,28 +39,28 @@ gzip.pipe(out);
 // }
 
 const createRecords = async () => {
-  let i = 0;
+  let i = 1;
   let ableToWrite = true;
   const write = () => {
     const dishes = createDishes(i);
     for (let j = 0; j < dishes.length; j++) {
       const {
-        resId,
+        resid,
         name,
-        desc,
+        description,
         price,
         category,
-        mealOption,
+        mealoption,
       } = dishes[j];
-      const csvMenu = `${resId},${name},${desc},${price},${category},${mealOption}\n`;
+      const csvMenu = `${resid},${name},${mealoption},${category},${description},${price}\n`;
       ableToWrite = gzip.write(csvMenu);
     }
     i++;
   };
 
-  while (i < 101001) {
+  while (i < 10000001) {
     write();
-    if (i % 1 === 0) {
+    if (i % 10000 === 0) {
       console.log(i);
     }
     if (!ableToWrite) {
@@ -70,7 +70,7 @@ const createRecords = async () => {
     }
   }
   await new Promise((resolve) => {
-    gzip.end('finish', resolve);
+    gzip.end('10000001,burger,Lunch,Meat patty,Main,12.89\n', resolve);
   });
 };
 
@@ -156,7 +156,7 @@ const createRecords = async () => {
 // };
 
 // writeOneMillionTimes(gzip);
-gzip.write('resId,name,desc,price,category,mealOption\n');
+gzip.write('resid,name,mealoption,category,description,price\n');
 createRecords();
 
 // gzip.end();

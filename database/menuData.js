@@ -68,23 +68,23 @@ const createMenu = (id) => {
 
 const createDish = (id) => {
   const name = faker.lorem.word(); // this was not here
-  const desc = faker.lorem.sentence();
+  const description = faker.lorem.sentence();
   const price = chance.floating({ min: 5, max: 200, fixed: 2 });
   const category = chance.pickone(foodCategories);
-  const mealOption = chance.pickone(mealOptions);
+  const mealoption = chance.pickone(mealOptions);
   const dish = {
-    resId: id,
+    resid: id,
     name,
-    desc,
+    description,
     price,
     category,
-    mealOption,
+    mealoption,
   };
   return dish;
 };
 
 const createDishes = (id) => {
-  const rng = chance.integer({ min: 10, max: 20 });
+  const rng = chance.integer({ min: 5, max: 10 });
   const result = [];
   for (let i = 0; i < rng; i++) {
     result.push(createDish(id));

@@ -24,3 +24,9 @@ coverage
 build/
 dist/
 
+/database/*.csv
+/database/*.csv.gz
+/database/*.json.gz
+/database/*.md
+
+
