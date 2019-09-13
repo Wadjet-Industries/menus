@@ -123,7 +123,7 @@ Dishes.syncDB((err) => {
       }
       newDishes.save((erro) => {
         if (erro) {
-          console.log('this is create error', err);
+          console.log('this is create error', erro);
         }
       });
     }
