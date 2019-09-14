@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-plusplus */
 const { Client } = require('pg');
 
@@ -10,6 +11,15 @@ const client = new Client({
 });
 
 client.connect();
+
+const postgreSQLQuery = (query, callback) => {
+  client.query(query, (err, result) => {
+    if (err) {
+      console.log(err);
+    }
+    callback(null, result);
+  });
+};
 
 const getMenu = (resid, callback) => {
   client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
@@ -52,4 +62,38 @@ const getMenu = (resid, callback) => {
   });
 };
 
-module.exports = { getMenu };
+const postDish = ({
+  resid,
+  name,
+  description,
+  price,
+  category,
+  mealoption,
+}, callback) => {
+  const query = `INSERT INTO dishes VALUES ('${resid}', '${name}', '${mealoption}', '${category}', '${description}', '${price}');`;
+  postgreSQLQuery(query, callback);
+};
+
+const updateDish = (resid, dish, callback) => {
+  let changeValues = '';
+  for (const key in dish) {
+    if (key !== 'name' && key !== 'mealoption') {
+      if (typeof dish[key] === 'string') {
+        changeValues += `${key}='${dish[key]},'`;
+      }
+      changeValues += `${key}=${dish[key]},`;
+    }
+  }
+  const query = `UPDATE dishes SET ${changeValues.slice(0, changeValues.length - 1)} WHERE resid=${resid} AND name='${dish.name}' AND mealoption='${dish.mealoption}';`;
+  postgreSQLQuery(query, callback);
+};
+
+const deleteDish = (resid, dish, callback) => {
+  console.log(resid, dish);
+  const query = `DELETE FROM dishes WHERE resid=${resid} AND name='${dish.name}' AND mealoption='${dish.mealoption}';`;
+  postgreSQLQuery(query, callback);
+};
+
+module.exports = {
+  getMenu, postDish, updateDish, deleteDish,
+};

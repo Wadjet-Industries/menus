@@ -39,7 +39,8 @@ app.get('/api/restaurant/:L/menu', (req, res) => {
 
 app.post('/api/restaurant/:L/dish', (req, res) => {
   req.body.resid = Number(req.params.L);
-  postMenu(req.body, (err, result) => {
+  console.log(req.body);
+  postgreSQLQuery.postDish(req.body, (err, result) => {
     if (err) {
       console.log('post error', err);
       return;
@@ -50,7 +51,7 @@ app.post('/api/restaurant/:L/dish', (req, res) => {
 
 app.put('/api/restaurant/:L/dish', (req, res) => {
   const id = Number(req.params.L);
-  updateMenu(id, req.body, (err, result) => {
+  postgreSQLQuery.updateDish(id, req.body, (err, result) => {
     if (err) {
       console.log(err);
       return;
@@ -61,13 +62,13 @@ app.put('/api/restaurant/:L/dish', (req, res) => {
 
 app.delete('/api/restaurant/:L/dish', (req, res) => {
   const id = req.params.L;
-  Menu.deleteOne({ id }, (err) => {
+  console.log(id, req.body);
+  postgreSQLQuery.deleteDish(id, req.body, (err, result) => {
     if (err) {
-      console.log('this is delete error', err);
-    } else {
-      console.log('finished deleting');
-      res.send('finished deleting');
+      console.log(err);
+      return;
     }
+    res.send(result);
   });
 });
 
