@@ -4,10 +4,12 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
 const db = require('../database/database.js');
-const query = require('../database/query.js');
+const cassandra = require('../database/query.js');
+const postgreSQLQuery = require('../database/postgreSQL.js');
 
 const { Menu } = db;
-const { getMenu, postMenu, updateMenu } = query;
+const { getMenu, postMenu, updateMenu } = cassandra;
+// const { query } = postgreSQLQuery;
 const app = express();
 const port = 3004;
 
@@ -26,7 +28,7 @@ app.use((req, res, next) => {
 
 app.get('/api/restaurant/:L/menu', (req, res) => {
   const menuId = Number(req.params.L);
-  getMenu(menuId, (err, result) => {
+  postgreSQLQuery.getMenu(menuId, (err, result) => {
     if (err) {
       console.log(err);
       return;
