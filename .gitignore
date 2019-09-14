@@ -28,5 +28,6 @@ dist/
 /database/*.csv.gz
 /database/*.json.gz
 /database/*.md
+*.pem
 
 

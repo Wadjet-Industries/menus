@@ -97,4 +97,8 @@ const updateMenu = (resid, dish, callback) => {
   });
 };
 
-module.exports = { getMenu, postMenu, updateMenu };
+// getMenu(1, (err, result) => console.log(result));
+
+module.exports = {
+  getMenu, postMenu, updateMenu, models,
+};

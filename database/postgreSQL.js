@@ -96,5 +96,5 @@ const deleteDish = (resid, dish, callback) => {
 };
 
 module.exports = {
-  getMenu, postDish, updateDish, deleteDish,
+  getMenu, postDish, updateDish, deleteDish, client,
 };
