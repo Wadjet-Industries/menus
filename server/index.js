@@ -3,13 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
-const db = require('../database/database.js');
-const cassandra = require('../database/query.js');
 const postgreSQLQuery = require('../database/postgreSQL.js');
 
-const { Menu } = db;
-const { getMenu, postMenu, updateMenu } = cassandra;
-// const { query } = postgreSQLQuery;
 const app = express();
 const port = 3004;
 
