@@ -2,14 +2,9 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-plusplus */
 const { Client } = require('pg');
+const db = require('./config/postgreSQLconfig.js');
 
-const client = new Client({
-  user: 'johnyi',
-  host: 'localhost',
-  database: 'mydb',
-  password: '',
-  port: 5432,
-});
+const client = new Client(db);
 
 client.connect();
 

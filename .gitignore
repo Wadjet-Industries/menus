@@ -29,5 +29,6 @@ dist/
 /database/*.json.gz
 /database/*.md
 *.pem
+/database/config/postgreSQLconfig.js
 
 
