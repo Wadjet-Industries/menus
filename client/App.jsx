@@ -6,6 +6,8 @@ import sample from '../database/sampleData';
 import HideButton from './HideButton';
 import styles from './css_modules/app.css';
 
+const ipAddress = 'http://ec2-52-8-76-8.us-west-1.compute.amazonaws.com';
+
 class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class Menu extends React.Component {
   // get menu data from server
   getMenuData() {
     const id = window.location.pathname.split('/')[2];
-    $.get(`http://localhost:3004/api/restaurant/${id === undefined ? '1' : id}/menu`, (result) => {
+    $.get(`http://${ipAddress}:3004/api/restaurant/${id === undefined ? '1' : id}/menu`, (result) => {
       this.setState({
         menu: result[0],
         selectedMealOption: Object.keys(result[0])[0],
