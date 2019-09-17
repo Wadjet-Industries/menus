@@ -14,12 +14,12 @@ let cassErrorCount = 0;
 const postTimes = [];
 let postErrorCount = 0;
 
-const numberOfRuns = 1000;
+const numberOfRuns = 10000;
 
 const test = async () => {
   for (let i = 0; i < numberOfRuns; i++) {
-    const id = chance.integer({ min: 9000000, max: 10000000 });
-    console.log(id);
+    const id = chance.integer({ min: 0, max: 10000000 });
+    // console.log(id);
 
     const postStartTime = performance.now();
 
@@ -51,6 +51,7 @@ const test = async () => {
   const totalPostTimes = postTimes.reduce((acc, val) => acc + val);
   const totalCassTimes = cassTimes.reduce((acc, val) => acc + val);
 
+  console.log('number of runs', numberOfRuns);
   console.log('total postgreSQL times', totalPostTimes);
   console.log('total cassandra times', totalCassTimes);
   console.log('-------------------------------------');
