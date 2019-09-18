@@ -4,6 +4,9 @@
 const fs = require('fs');
 const zlib = require('zlib');
 const faker = require('faker');
+const Chance = require('chance');
+
+const chance = Chance();
 
 const gzip = zlib.createGzip();
 const out = fs.createWriteStream('restaurant10M.csv.gz');
@@ -56,7 +59,8 @@ const createRestaurants = async () => {
   let ableToWrite = true;
   const write = () => {
     const name = faker.lorem.word();
-    const restaurant = `${i},${name}\n`;
+    const visitsPerMonth = chance.integer({ min: 0, max: 100000 });
+    const restaurant = `${i},${name},${visitsPerMonth}\n`;
     ableToWrite = gzip.write(restaurant);
     i++;
   };
@@ -73,9 +77,8 @@ const createRestaurants = async () => {
     }
   }
   await new Promise((resolve) => {
-    gzip.end('10000001,What-a-burger\n', resolve);
+    gzip.end('10000001,What-a-burger,0\n', resolve);
   });
 };
 
-gzip.write('resid,name\n');
 createRestaurants();
