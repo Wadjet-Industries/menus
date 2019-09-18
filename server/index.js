@@ -13,13 +13,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('tiny'));
 
-app.use(express.static('public'));
-app.use('/restaurant/:L/menu', express.static('public'));
-
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   next();
 });
+
+app.use('/', express.static('public'));
+app.use('/restaurant/:L/menu', express.static('public'));
 
 app.get('/api/restaurant/:L/menu', (req, res) => {
   const menuId = Number(req.params.L);
