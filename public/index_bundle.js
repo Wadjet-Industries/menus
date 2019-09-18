@@ -130,6 +130,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+var ipAddress = '54.193.125.7';
 
 var Menu =
 /*#__PURE__*/
@@ -173,7 +174,7 @@ function (_React$Component) {
       var _this2 = this;
 
       var id = window.location.pathname.split('/')[2];
-      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://localhost:3004/api/restaurant/".concat(id === undefined ? '1' : id, "/menu"), function (result) {
+      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://".concat(ipAddress, ":3004/api/restaurant/").concat(id === undefined ? '1' : id, "/menu"), function (result) {
         _this2.setState({
           menu: result[0],
           selectedMealOption: Object.keys(result[0])[0]
