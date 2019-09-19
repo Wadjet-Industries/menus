@@ -1,4 +1,1134 @@
+<<<<<<< HEAD
 !function(e){var t={};function n(r){if(t[r])return t[r].exports;var i=t[r]={i:r,l:!1,exports:{}};return e[r].call(i.exports,i,i.exports,n),i.l=!0,i.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var i in e)n.d(r,i,function(t){return e[t]}.bind(null,i));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=20)}([function(e,t,n){"use strict";e.exports=n(11)},function(e,t,n){var r=n(19);"string"==typeof r&&(r=[[e.i,r,""]]);var i={insert:"head",singleton:!1};n(4)(r,i);r.locals&&(e.exports=r.locals)},function(e,t,n){var r=n(16);"string"==typeof r&&(r=[[e.i,r,""]]);var i={insert:"head",singleton:!1};n(4)(r,i);r.locals&&(e.exports=r.locals)},function(e,t,n){"use strict";e.exports=function(e){var t=[];return t.toString=function(){return this.map(function(t){var n=function(e,t){var n=e[1]||"",r=e[3];if(!r)return n;if(t&&"function"==typeof btoa){var i=(a=r,l=btoa(unescape(encodeURIComponent(JSON.stringify(a)))),u="sourceMappingURL=data:application/json;charset=utf-8;base64,".concat(l),"/*# ".concat(u," */")),o=r.sources.map(function(e){return"/*# sourceURL=".concat(r.sourceRoot).concat(e," */")});return[n].concat(o).concat([i]).join("\n")}var a,l,u;return[n].join("\n")}(t,e);return t[2]?"@media ".concat(t[2],"{").concat(n,"}"):n}).join("")},t.i=function(e,n){"string"==typeof e&&(e=[[null,e,""]]);for(var r={},i=0;i<this.length;i++){var o=this[i][0];null!=o&&(r[o]=!0)}for(var a=0;a<e.length;a++){var l=e[a];null!=l[0]&&r[l[0]]||(n&&!l[2]?l[2]=n:n&&(l[2]="(".concat(l[2],") and (").concat(n,")")),t.push(l))}},t}},function(e,t,n){"use strict";var r,i={},o=function(){return void 0===r&&(r=Boolean(window&&document&&document.all&&!window.atob)),r},a=function(){var e={};return function(t){if(void 0===e[t]){var n=document.querySelector(t);if(window.HTMLIFrameElement&&n instanceof window.HTMLIFrameElement)try{n=n.contentDocument.head}catch(e){n=null}e[t]=n}return e[t]}}();function l(e,t){for(var n=[],r={},i=0;i<e.length;i++){var o=e[i],a=t.base?o[0]+t.base:o[0],l={css:o[1],media:o[2],sourceMap:o[3]};r[a]?r[a].parts.push(l):n.push(r[a]={id:a,parts:[l]})}return n}function u(e,t){for(var n=0;n<e.length;n++){var r=e[n],o=i[r.id],a=0;if(o){for(o.refs++;a<o.parts.length;a++)o.parts[a](r.parts[a]);for(;a<r.parts.length;a++)o.parts.push(m(r.parts[a],t))}else{for(var l=[];a<r.parts.length;a++)l.push(m(r.parts[a],t));i[r.id]={id:r.id,refs:1,parts:l}}}}function s(e){var t=document.createElement("style");if(void 0===e.attributes.nonce){var r=n.nc;r&&(e.attributes.nonce=r)}if(Object.keys(e.attributes).forEach(function(n){t.setAttribute(n,e.attributes[n])}),"function"==typeof e.insert)e.insert(t);else{var i=a(e.insert||"head");if(!i)throw new Error("Couldn't find a style target. This probably means that the value for the 'insert' parameter is invalid.");i.appendChild(t)}return t}var c,f=(c=[],function(e,t){return c[e]=t,c.filter(Boolean).join("\n")});function d(e,t,n,r){var i=n?"":r.css;if(e.styleSheet)e.styleSheet.cssText=f(t,i);else{var o=document.createTextNode(i),a=e.childNodes;a[t]&&e.removeChild(a[t]),a.length?e.insertBefore(o,a[t]):e.appendChild(o)}}var p=null,h=0;function m(e,t){var n,r,i;if(t.singleton){var o=h++;n=p||(p=s(t)),r=d.bind(null,n,o,!1),i=d.bind(null,n,o,!0)}else n=s(t),r=function(e,t,n){var r=n.css,i=n.media,o=n.sourceMap;if(i&&e.setAttribute("media",i),o&&btoa&&(r+="\n/*# sourceMappingURL=data:application/json;base64,".concat(btoa(unescape(encodeURIComponent(JSON.stringify(o))))," */")),e.styleSheet)e.styleSheet.cssText=r;else{for(;e.firstChild;)e.removeChild(e.firstChild);e.appendChild(document.createTextNode(r))}}.bind(null,n,t),i=function(){!function(e){if(null===e.parentNode)return!1;e.parentNode.removeChild(e)}(n)};return r(e),function(t){if(t){if(t.css===e.css&&t.media===e.media&&t.sourceMap===e.sourceMap)return;r(e=t)}else i()}}e.exports=function(e,t){(t=t||{}).attributes="object"==typeof t.attributes?t.attributes:{},t.singleton||"boolean"==typeof t.singleton||(t.singleton=o());var n=l(e,t);return u(n,t),function(e){for(var r=[],o=0;o<n.length;o++){var a=n[o],s=i[a.id];s&&(s.refs--,r.push(s))}e&&u(l(e,t),t);for(var c=0;c<r.length;c++){var f=r[c];if(0===f.refs){for(var d=0;d<f.parts.length;d++)f.parts[d]();delete i[f.id]}}}}},function(e,t,n){var r=n(15);"string"==typeof r&&(r=[[e.i,r,""]]);var i={insert:"head",singleton:!1};n(4)(r,i);r.locals&&(e.exports=r.locals)},function(e,t,n){var r=n(17);"string"==typeof r&&(r=[[e.i,r,""]]);var i={insert:"head",singleton:!1};n(4)(r,i);r.locals&&(e.exports=r.locals)},function(e,t,n){var r=n(18);"string"==typeof r&&(r=[[e.i,r,""]]);var i={insert:"head",singleton:!1};n(4)(r,i);r.locals&&(e.exports=r.locals)},function(e,t,n){"use strict";
+=======
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./client/index.jsx");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./client/App.jsx":
+/*!************************!*\
+  !*** ./client/App.jsx ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _MealOption__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MealOption */ "./client/MealOption.jsx");
+/* harmony import */ var _Category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Category */ "./client/Category.jsx");
+/* harmony import */ var _database_sampleData__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../database/sampleData */ "./database/sampleData.js");
+/* harmony import */ var _HideButton__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./HideButton */ "./client/HideButton.jsx");
+/* harmony import */ var _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./css_modules/app.css */ "./client/css_modules/app.css");
+/* harmony import */ var _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_css_modules_app_css__WEBPACK_IMPORTED_MODULE_6__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+var ipAddress = '54.193.125.7';
+
+var Menu =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(Menu, _React$Component);
+
+  function Menu(props) {
+    var _this;
+
+    _classCallCheck(this, Menu);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Menu).call(this, props));
+    _this.state = {
+      menu: _database_sampleData__WEBPACK_IMPORTED_MODULE_4__["default"][0],
+      selectedMealOption: 'Brunch',
+      fullMenuIsVisible: false
+    };
+    _this.getMenuData = _this.getMenuData.bind(_assertThisInitialized(_this));
+    _this.handleViewChange = _this.handleViewChange.bind(_assertThisInitialized(_this));
+    _this.handleVisibility = _this.handleVisibility.bind(_assertThisInitialized(_this));
+    _this.getMealOptionList = _this.getMealOptionList.bind(_assertThisInitialized(_this));
+    return _this;
+  } // gets menu data as soon as page renders
+
+
+  _createClass(Menu, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.getMenuData();
+    }
+  }, {
+    key: "getMealOptionList",
+    value: function getMealOptionList() {
+      var menu = this.state.menu;
+      return Object.keys(menu);
+    } // get menu data from server
+
+  }, {
+    key: "getMenuData",
+    value: function getMenuData() {
+      var _this2 = this;
+
+      var id = window.location.pathname.split('/')[2];
+      jquery__WEBPACK_IMPORTED_MODULE_1___default.a.get("http://".concat(ipAddress, ":3004/api/restaurant/").concat(id === undefined ? '1' : id, "/menu"), function (result) {
+        _this2.setState({
+          menu: result[0],
+          selectedMealOption: Object.keys(result[0])[0]
+        });
+      });
+    } // handles button click changing states
+
+  }, {
+    key: "handleViewChange",
+    value: function handleViewChange(mealOption) {
+      this.setState({
+        selectedMealOption: mealOption
+      });
+    } // handles rendering the bottom half of the menu
+
+  }, {
+    key: "handleVisibility",
+    value: function handleVisibility() {
+      var fullMenuIsVisible = this.state.fullMenuIsVisible;
+
+      if (fullMenuIsVisible === true) {
+        this.setState({
+          fullMenuIsVisible: false
+        });
+      } else {
+        this.setState({
+          fullMenuIsVisible: true
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$state = this.state,
+          menu = _this$state.menu,
+          fullMenuIsVisible = _this$state.fullMenuIsVisible,
+          selectedMealOption = _this$state.selectedMealOption;
+      var mealOptions = this.getMealOptionList();
+      var categories = menu[selectedMealOption]; // if (!categories) debugger;
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.masterContainer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Menu"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.jrContainer
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.mealOptions
+      }, mealOptions.map(function (mealOption) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_MealOption__WEBPACK_IMPORTED_MODULE_2__["default"], {
+          selected: selectedMealOption === mealOption,
+          changeMeal: _this3.handleViewChange,
+          mealOption: mealOption
+        });
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: fullMenuIsVisible ? _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.meals2 : _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.meals
+      }, Object.keys(categories).map(function (categoryName) {
+        var dishes = categories[categoryName];
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Category__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          categoryName: categoryName,
+          dishes: dishes
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: _css_modules_app_css__WEBPACK_IMPORTED_MODULE_6___default.a.hideButton
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_HideButton__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        handleVisibility: this.handleVisibility,
+        fullMenuIsVisible: fullMenuIsVisible
+      })));
+    }
+  }]);
+
+  return Menu;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+window.menu = Menu;
+/* harmony default export */ __webpack_exports__["default"] = (Menu);
+
+/***/ }),
+
+/***/ "./client/Category.jsx":
+/*!*****************************!*\
+  !*** ./client/Category.jsx ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _Dish__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Dish */ "./client/Dish.jsx");
+/* harmony import */ var _css_modules_category_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./css_modules/category.css */ "./client/css_modules/category.css");
+/* harmony import */ var _css_modules_category_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_css_modules_category_css__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
+var Category = function Category(props) {
+  var categoryName = props.categoryName,
+      dishes = props.dishes;
+  var dishesArr = Object.entries(dishes);
+  var mid = Math.floor(dishesArr.length / 2);
+  var dishes1 = dishesArr.slice(0, mid);
+  var dishes2 = dishesArr.slice(mid);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: _css_modules_category_css__WEBPACK_IMPORTED_MODULE_2___default.a.name
+  }, categoryName), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _css_modules_category_css__WEBPACK_IMPORTED_MODULE_2___default.a.dishContainer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, dishes1.map(function (dish) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dish__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      name: dish[0],
+      description: dish[1].description,
+      price: dish[1].price
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, dishes2.map(function (dish) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Dish__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      name: dish[0],
+      description: dish[1].description,
+      price: dish[1].price
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+  }))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Category);
+
+/***/ }),
+
+/***/ "./client/Dish.jsx":
+/*!*************************!*\
+  !*** ./client/Dish.jsx ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css_modules/dish.css */ "./client/css_modules/dish.css");
+/* harmony import */ var _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Dish = function Dish(props) {
+  var description = props.description,
+      price = props.price,
+      name = props.name;
+  var caps = name.charAt(0).toUpperCase() + name.slice(1);
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default.a.masterContainer
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default.a.container
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+    className: _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default.a.name
+  }, caps), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default.a.name
+  }, "$".concat(price))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: _css_modules_dish_css__WEBPACK_IMPORTED_MODULE_1___default.a.description
+  }, description));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Dish);
+
+/***/ }),
+
+/***/ "./client/HideButton.jsx":
+/*!*******************************!*\
+  !*** ./client/HideButton.jsx ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_modules_hideButton_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css_modules/hideButton.css */ "./client/css_modules/hideButton.css");
+/* harmony import */ var _css_modules_hideButton_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_modules_hideButton_css__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var HideButton =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(HideButton, _React$Component);
+
+  function HideButton(props) {
+    var _this;
+
+    _classCallCheck(this, HideButton);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(HideButton).call(this, props));
+    _this.state = {
+      hovered: false
+    };
+    _this.handleOnHover = _this.handleOnHover.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(HideButton, [{
+    key: "handleOnHover",
+    value: function handleOnHover() {
+      var hovered = this.state.hovered;
+      this.setState({
+        hovered: !hovered
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          fullMenuIsVisible = _this$props.fullMenuIsVisible,
+          handleVisibility = _this$props.handleVisibility;
+      var hovered = this.state.hovered;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        type: "button",
+        onMouseEnter: this.handleOnHover,
+        onMouseLeave: this.handleOnHover,
+        className: hovered ? _css_modules_hideButton_css__WEBPACK_IMPORTED_MODULE_1___default.a.hovered : _css_modules_hideButton_css__WEBPACK_IMPORTED_MODULE_1___default.a.unhovered,
+        onClick: function onClick() {
+          return handleVisibility();
+        }
+      }, fullMenuIsVisible ? 'Hide Menu' : 'Show Full Menu');
+    }
+  }]);
+
+  return HideButton;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (HideButton);
+
+/***/ }),
+
+/***/ "./client/MealOption.jsx":
+/*!*******************************!*\
+  !*** ./client/MealOption.jsx ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_modules_mealOption_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css_modules/mealOption.css */ "./client/css_modules/mealOption.css");
+/* harmony import */ var _css_modules_mealOption_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_modules_mealOption_css__WEBPACK_IMPORTED_MODULE_1__);
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var MealOption =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(MealOption, _React$Component);
+
+  function MealOption(props) {
+    var _this;
+
+    _classCallCheck(this, MealOption);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(MealOption).call(this, props));
+    _this.state = {
+      toggled: false
+    };
+    _this.handleSelected = _this.handleSelected.bind(_assertThisInitialized(_this));
+    return _this;
+  } // handles color change when selected
+
+
+  _createClass(MealOption, [{
+    key: "handleSelected",
+    value: function handleSelected(cb) {
+      var toggled = this.state.toggled;
+      this.setState({
+        toggled: !toggled
+      }, function () {
+        return cb();
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          mealOption = _this$props.mealOption,
+          changeMeal = _this$props.changeMeal,
+          selected = _this$props.selected;
+      var toggled = this.state.toggled;
+      var select;
+
+      if (!selected) {
+        select = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: _css_modules_mealOption_css__WEBPACK_IMPORTED_MODULE_1___default.a.unselected,
+          onClick: function onClick() {
+            return changeMeal(mealOption);
+          }
+        }, mealOption);
+      } else {
+        select = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          type: "button",
+          className: _css_modules_mealOption_css__WEBPACK_IMPORTED_MODULE_1___default.a.selected,
+          onClick: function onClick() {
+            return changeMeal(mealOption);
+          }
+        }, mealOption);
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, select);
+    }
+  }]);
+
+  return MealOption;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (MealOption);
+
+/***/ }),
+
+/***/ "./client/css_modules/app.css":
+/*!************************************!*\
+  !*** ./client/css_modules/app.css ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./app.css */ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/app.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./client/css_modules/category.css":
+/*!*****************************************!*\
+  !*** ./client/css_modules/category.css ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./category.css */ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/category.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./client/css_modules/dish.css":
+/*!*************************************!*\
+  !*** ./client/css_modules/dish.css ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./dish.css */ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/dish.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./client/css_modules/hideButton.css":
+/*!*******************************************!*\
+  !*** ./client/css_modules/hideButton.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./hideButton.css */ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/hideButton.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./client/css_modules/mealOption.css":
+/*!*******************************************!*\
+  !*** ./client/css_modules/mealOption.css ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js??ref--5-1!./mealOption.css */ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/mealOption.css");
+
+if (typeof content === 'string') {
+  content = [[module.i, content, '']];
+}
+
+var options = {}
+
+options.insert = "head";
+options.singleton = false;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js")(content, options);
+
+if (content.locals) {
+  module.exports = content.locals;
+}
+
+
+/***/ }),
+
+/***/ "./client/index.jsx":
+/*!**************************!*\
+  !*** ./client/index.jsx ***!
+  \**************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./App */ "./client/App.jsx");
+
+
+
+react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null), document.getElementById('app'));
+
+/***/ }),
+
+/***/ "./database/sampleData.js":
+/*!********************************!*\
+  !*** ./database/sampleData.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// eslint-disable-next-line no-unused-expressions
+var sample = [{
+  Brunch: {
+    'Selection of Brandy': {
+      eum: {
+        description: 'Veritatis ratione laudantium ullam occaecati aliquam voluptas sint.',
+        price: 5.77
+      }
+    },
+    'Dessert Wines': {
+      consequatur: {
+        description: 'Molestias et vero repellat iure eius ut officiis et soluta.',
+        price: 60.61
+      },
+      consequuntur: {
+        description: 'Voluptates ipsam aut soluta et nemo exercitationem omnis eligendi.',
+        price: 136.04
+      }
+    },
+    'Small Plates': {
+      delectus: {
+        description: 'Et quod alias molestias enim rem incidunt.',
+        price: 49.35
+      },
+      perspiciatis: {
+        description: 'Provident sapiente consequatur magni distinctio aut natus possimus et sint.',
+        price: 137.77
+      },
+      sed: {
+        description: 'Quia deserunt neque est ut amet enim et minima provident.',
+        price: 92.96
+      },
+      quidem: {
+        description: 'Et nam ipsa molestias dolore aut recusandae sed et cupiditate.',
+        price: 15.15
+      },
+      voluptatibus: {
+        description: 'Optio mollitia nisi similique natus illum corrupti.',
+        price: 179.58
+      },
+      labore: {
+        description: 'Saepe provident deserunt molestiae omnis esse.',
+        price: 167.07
+      }
+    },
+    'Absinthe Classics': {
+      ut: {
+        description: 'Ea eum sunt.',
+        price: 78.36
+      },
+      itaque: {
+        description: 'Facilis doloremque in.',
+        price: 86.9
+      },
+      ab: {
+        description: 'Dicta consequatur sint sit tenetur iste autem dolorum quasi.',
+        price: 25.47
+      },
+      eum: {
+        description: 'Sit cupiditate cupiditate nobis id in harum ut.',
+        price: 155.74
+      },
+      laboriosam: {
+        description: 'Vel architecto sint id nihil.',
+        price: 141.96
+      }
+    },
+    Main: {
+      quae: {
+        description: 'Ullam fugiat blanditiis enim doloremque ad.',
+        price: 155
+      },
+      voluptas: {
+        description: 'Alias saepe nihil.',
+        price: 81.1
+      },
+      qui: {
+        description: 'Ex libero fugit repudiandae molestiae quo.',
+        price: 151.05
+      }
+    },
+    Sides: {
+      earum: {
+        description: 'Saepe est quod illum nihil quasi quo.',
+        price: 193.27
+      }
+    },
+    Entrees: {
+      quos: {
+        description: 'Dignissimos suscipit molestias possimus asperiores qui.',
+        price: 75.37
+      },
+      et: {
+        description: 'Ea accusamus deleniti sit ut eaque ut molestiae.',
+        price: 131.57
+      },
+      id: {
+        description: 'Nisi sed quidem nulla quia in aut ducimus quae.',
+        price: 32.53
+      },
+      quaerat: {
+        description: 'Dignissimos iure nostrum sapiente enim aut.',
+        price: 36.67
+      }
+    }
+  },
+  Dinner: {
+    'Selection of Brandy': {
+      est: {
+        description: 'Inventore inventore fuga consequatur.',
+        price: 81.79
+      },
+      iusto: {
+        description: 'Id aliquam facere veniam architecto omnis occaecati et.',
+        price: 184.28
+      },
+      et: {
+        description: 'Ut voluptate architecto numquam aut quisquam eos unde.',
+        price: 114.62
+      },
+      qui: {
+        description: 'Nihil quo nostrum perferendis.',
+        price: 181.76
+      }
+    },
+    'Soups & Salads': {
+      tempora: {
+        description: 'Soluta temporibus officiis voluptatem dolor voluptatem odio enim maxime quo.',
+        price: 37.92
+      },
+      consequuntur: {
+        description: 'Repellat consequatur cumque et repellat vero.',
+        price: 175.96
+      },
+      vitae: {
+        description: 'Eos cupiditate repellendus non necessitatibus est sed inventore.',
+        price: 72.69
+      },
+      velit: {
+        description: 'Enim sapiente repellat distinctio.',
+        price: 85.93
+      },
+      sed: {
+        description: 'Et veritatis ea dolorem et.',
+        price: 80.8
+      }
+    },
+    'After-dinner Spirits': {
+      sequi: {
+        description: 'Quos unde id maiores laboriosam sed laudantium et autem amet.',
+        price: 150.22
+      },
+      saepe: {
+        description: 'Nisi minus quos aut explicabo.',
+        price: 154.97
+      },
+      veniam: {
+        description: 'Nobis qui molestiae amet officia dicta velit ipsam.',
+        price: 13.34
+      },
+      quis: {
+        description: 'Laboriosam voluptatibus totam tempore placeat ea quo eos consequatur sint.',
+        price: 53.43
+      },
+      distinctio: {
+        description: 'A quia aut facilis sunt fugiat.',
+        price: 64.09
+      },
+      doloribus: {
+        description: 'Qui consequatur in corporis.',
+        price: 165.57
+      }
+    },
+    Desserts: {
+      architecto: {
+        description: 'Rerum dolorem corporis sed tempore quasi non consequuntur.',
+        price: 115.87
+      }
+    }
+  },
+  Dessert: {
+    'Selection of Brandy': {
+      molestiae: {
+        description: 'Debitis ut facilis debitis accusamus doloribus.',
+        price: 29.14
+      },
+      delectus: {
+        description: 'Aut molestiae quaerat et.',
+        price: 132.47
+      },
+      provident: {
+        description: 'Atque similique hic est voluptatum sed.',
+        price: 58.26
+      }
+    }
+  },
+  Cheese: {
+    Snacks: {
+      repellat: {
+        description: 'Et saepe aliquid adipisci.',
+        price: 135.46
+      },
+      omnis: {
+        description: 'Maiores voluptas distinctio non quam qui numquam magni non porro.',
+        price: 143.3
+      },
+      perspiciatis: {
+        description: 'Ipsum numquam soluta.',
+        price: 8.83
+      },
+      vero: {
+        description: 'Dignissimos facilis minus.',
+        price: 40.93
+      },
+      illum: {
+        description: 'Qui vero blanditiis qui ut beatae aut nostrum consequatur.',
+        price: 164.1
+      },
+      a: {
+        description: 'Laudantium nemo commodi id et soluta magni.',
+        price: 74.69
+      }
+    },
+    'Selection of Tea': {
+      deleniti: {
+        description: 'Harum quam impedit minus corporis et esse id incidunt.',
+        price: 198.95
+      },
+      quia: {
+        description: 'Quo eveniet ut delectus quam magnam voluptatem cum eos.',
+        price: 11.91
+      },
+      itaque: {
+        description: 'Et inventore aut ipsum quia exercitationem deserunt non.',
+        price: 150.89
+      },
+      qui: {
+        description: 'Iste repellendus in quaerat numquam quia magni aspernatur cum.',
+        price: 158.76
+      },
+      quas: {
+        description: 'Dolor eum eveniet id incidunt et repellendus.',
+        price: 189.3
+      },
+      totam: {
+        description: 'Dolorem accusantium ut eum.',
+        price: 41.66
+      }
+    },
+    'Raw Bar': {
+      id: {
+        description: 'Inventore nisi quia maxime.',
+        price: 54.14
+      },
+      adipisci: {
+        description: 'Et ratione dicta quos.',
+        price: 124.48
+      }
+    },
+    Desserts: {
+      nemo: {
+        description: 'Et ut autem dolorem.',
+        price: 137.03
+      },
+      fugit: {
+        description: 'Laboriosam non omnis sit deserunt.',
+        price: 160.52
+      },
+      cupiditate: {
+        description: 'Eos minima doloribus sequi rerum adipisci commodi aperiam iste.',
+        price: 53.92
+      },
+      illum: {
+        description: 'Nesciunt omnis est voluptatem odio doloribus molestiae vitae iste.',
+        price: 108.88
+      },
+      vel: {
+        description: 'Ratione quam quod illo.',
+        price: 71.32
+      }
+    },
+    'Selected Single-malt Scotches': {
+      repellat: {
+        description: 'Rem aut dolore ducimus corporis quia exercitationem rerum.',
+        price: 121.27
+      },
+      et: {
+        description: 'Illo non nihil fugiat non tempora praesentium voluptatem.',
+        price: 132.06
+      }
+    },
+    'Soups & Salads': {
+      et: {
+        description: 'Beatae non veniam.',
+        price: 134.99
+      }
+    },
+    Main: {
+      dolor: {
+        description: 'Sint voluptatem dignissimos dolorem libero occaecati pariatur temporibus possimus totam.',
+        price: 175.84
+      },
+      ad: {
+        description: 'Corporis molestiae tenetur pariatur iste.',
+        price: 176.88
+      },
+      et: {
+        description: 'Excepturi vero aliquam dicta expedita aperiam et qui cumque tempora.',
+        price: 5.05
+      },
+      quidem: {
+        description: 'Facere dolorum mollitia cupiditate temporibus voluptates.',
+        price: 112.65
+      },
+      odio: {
+        description: 'Ea ipsa quia inventore tempore sit quia dolorum minima nisi.',
+        price: 75.41
+      }
+    }
+  }
+}];
+/* harmony default export */ __webpack_exports__["default"] = (sample);
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/app.css":
+/*!************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./client/css_modules/app.css ***!
+  \************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".client-css_modules-app__masterContainer--1XEzj {\n  display: flex;\n  align-content: center;\n  justify-content: center;\n  flex-direction: column;\n  align-items: left;\n  position: relative;\n  left: 15%;\n}\n\nh1 {\n  display: flex;\n  font-family: 'brandon-text';\n  margin: 10px;\n  width: 500px;\n  justify-content: center;\n}\n\nhr {\n  color: #d8d9db;\n  border-width: 0;\n  height: 1px;\n  background-color:#d8d9db;\n}\n\n.client-css_modules-app__meals--1Ubnd {\n  padding: 25px;\n  -webkit-mask-image: -webkit-gradient(linear, left top,\n  left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));\n  height: 350px;\n  width: 500px;\n}\n\n.client-css_modules-app__meals2--3K88q {\n  padding: 25px;\n  width: 500px;\n}\n\n.client-css_modules-app__mealOptions--1R0DC {\n  display: flex;\n  align-content: center;\n  width: 500px;\n  justify-content: center;\n  flex-wrap: wrap;\n}\n\n.client-css_modules-app__jrContainer--1Qlun {\n  width: 500px;\n}\n\n/* @font-face {\n  font-family: 'brandon-text';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Medium.otf') format('opentype');\n} */\n\n.client-css_modules-app__hideButton--2Qdu0 {\n  display: flex;\n  align-content: center;\n  width: 500px;\n  justify-content: center;\n}", ""]);
+// Exports
+exports.locals = {
+	"masterContainer": "client-css_modules-app__masterContainer--1XEzj",
+	"meals": "client-css_modules-app__meals--1Ubnd",
+	"meals2": "client-css_modules-app__meals2--3K88q",
+	"mealOptions": "client-css_modules-app__mealOptions--1R0DC",
+	"jrContainer": "client-css_modules-app__jrContainer--1Qlun",
+	"hideButton": "client-css_modules-app__hideButton--2Qdu0"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/category.css":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./client/css_modules/category.css ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, "/* @font-face {\n  font-family: 'brandon-text';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Thin.otf') format('opentype');\n} */\n\n.client-css_modules-category__name--ztSte {\n  /* font-family: 'brandon-text'; */\n  margin: 0;\n  font-size: 16px;\n  line-height: 24px;\n  font-weight: 500;\n  padding: 0;\n  font-weight: bold;\n}\n\n.client-css_modules-category__dishContainer--3Im6j {\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n}", ""]);
+// Exports
+exports.locals = {
+	"name": "client-css_modules-category__name--ztSte",
+	"dishContainer": "client-css_modules-category__dishContainer--3Im6j"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/dish.css":
+/*!*************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./client/css_modules/dish.css ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".client-css_modules-dish__name--3KdYy {\n  /* font-family: 'brandon-text-med'; */\n  margin: 0;\n  padding-right: 25px;\n  font-size: 14px;\n  line-height: 20px;\n  font-weight: 500;\n  font-weight: bold;\n}\n\n.client-css_modules-dish__description--3HdiV {\n  /* font-family: 'brandon-text-reg'; */\n  margin-top: 8px;\n  margin-bottom: 0;\n  font-weight: 400;\n  margin: 0;\n  padding: 0;\n  font-size: 14px;\n  line-height: 20px;\n}\n\n.client-css_modules-dish__container--1NEJ1 {\n  display: flex;\n  justify-content: space-between;\n  flex-direction: row;\n}\n\n.client-css_modules-dish__masterContainer--U0Qh5 {\n  display: flex;\n  justify-content: space-between;\n  width: 250px;\n  flex-direction: column;\n}\n\n/* @font-face {\n  font-family: 'brandon-text-med';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Medium.otf') format('opentype');\n}\n\n@font-face {\n  font-family: 'brandon-text-reg';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Medium.otf') format('opentype');\n} */", ""]);
+// Exports
+exports.locals = {
+	"name": "client-css_modules-dish__name--3KdYy",
+	"description": "client-css_modules-dish__description--3HdiV",
+	"container": "client-css_modules-dish__container--1NEJ1",
+	"masterContainer": "client-css_modules-dish__masterContainer--U0Qh5"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/hideButton.css":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./client/css_modules/hideButton.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".client-css_modules-hideButton__unhovered--eZXZR {\n  padding: 16px;\n  font-size: 16px;\n  line-height: 1rem;\n  font-weight: 500;\n  width: 18rem;\n  border-radius: 2px;\n  display: inline-block;\n  box-sizing: border-box;\n}\n\n.client-css_modules-hideButton__hovered--1SyCB {\n  border: 2px solid #da3743;\n}\n\n/* @font-face {\n  font-family: 'brandon-text';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Bold.otf') format('opentype');\n} */", ""]);
+// Exports
+exports.locals = {
+	"unhovered": "client-css_modules-hideButton__unhovered--eZXZR",
+	"hovered": "client-css_modules-hideButton__hovered--1SyCB client-css_modules-hideButton__unhovered--eZXZR"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js?!./client/css_modules/mealOption.css":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ref--5-1!./client/css_modules/mealOption.css ***!
+  \*******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js")(false);
+// Module
+exports.push([module.i, ".client-css_modules-mealOption__unselected---expg {\n  margin-right: 16px;\n  background-color: #fff;\n  margin-top: 16px;\n  font-size: 14px;\n  color: #2d333f;\n  border: 1px solid #d8d9db;\n  padding: calc(8px - 1px) calc(16px - 1px);\n  border-radius: 2px;\n}\n\n.client-css_modules-mealOption__selected--2EQJC {\n  border: 2px solid #da3743;\n}\n\nbutton:focus {\n  outline:0;\n}\n\n/* @font-face {\n  font-family: 'brandon-text';\n  src: url('/Users/wesleyluk/fec/Menu/public/Brandon Text/HVD Fonts - BrandonText-Regular.otf') format('opentype');\n} */", ""]);
+// Exports
+exports.locals = {
+	"unselected": "client-css_modules-mealOption__unselected---expg",
+	"selected": "client-css_modules-mealOption__selected--2EQJC client-css_modules-mealOption__unselected---expg"
+};
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/runtime/api.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/css-loader/dist/runtime/api.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+>>>>>>> 0e19c250ba6f7aae5cea5c5ec25e0a73ed0d55be
 /*
 object-assign
 (c) Sindre Sorhus
