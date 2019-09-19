@@ -32,4 +32,4 @@ dist/
 /database/config/postgreSQLconfig.js
 aws-keys.json
 
-
+newrelic.config.js
