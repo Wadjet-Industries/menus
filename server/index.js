@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+const nr = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
