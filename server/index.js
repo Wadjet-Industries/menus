@@ -4,7 +4,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
-const postgreSQLQuery = require('../database/postgreSQL.js');
+const {
+  getMenu, postDish, updateDish, deleteDish,
+} = require('./controller/controller.js');
 
 const app = express();
 const port = 3004;
@@ -22,16 +24,7 @@ app.use((req, res, next) => {
 app.use('/', express.static('public'));
 app.use('/restaurant/:L/menu', express.static('public'));
 
-app.get('/api/restaurant/:L/menu', (req, res) => {
-  const menuId = Number(req.params.L);
-  postgreSQLQuery.getMenu(menuId, (err, result) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    res.send(result);
-  });
-});
+app.get('/api/restaurant/:L/menu', getMenu);
 
 app.post('/api/restaurant/:L/dish', (req, res) => {
   req.body.resid = Number(req.params.L);
