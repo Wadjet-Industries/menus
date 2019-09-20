@@ -1,10 +1,10 @@
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-plusplus */
-const { Client } = require('pg');
+const { Pool } = require('pg');
 const db = require('./config/postgreSQLconfig.js');
 
-const client = new Client(db);
+const client = new Pool(db);
 
 client.connect();
 
