@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-plusplus */
-const { Pool } = require('pg');
+const { Pool, Client } = require('pg');
 const db = require('./config/postgreSQLconfig.js');
 
-const client = new Pool(db);
+const client = new Client(db);
 
-//client.connect();
+client.connect();
 
 const postgreSQLQuery = (query, callback) => {
   client.query(query, (err, result) => {
