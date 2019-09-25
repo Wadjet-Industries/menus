@@ -4,7 +4,7 @@
 const { Pool } = require('pg');
 const db = require('./config/postgreSQLconfig.js');
 
-const pool = new Pool(db);
+const client = new Pool(db);
 
 //client.connect();
 
@@ -18,15 +18,15 @@ const postgreSQLQuery = (query, callback) => {
 };
 
 const getMenu = (resid, callback) => {
-  pool.connect((err, client, done) => {
-    if (err) {
-      console.log(err);
-    }
+ // pool.connect((err, client, done) => {
+ //   if (err) {
+ //     console.log(err);
+ //   }
     client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
       if (err) {
         callback(err);
       }
-      done();
+     // done();
       const result = {};
       for (let i = 0; i < results.rows.length; i++) {
         const {
@@ -61,7 +61,7 @@ const getMenu = (resid, callback) => {
       }
       callback(null, [result]);
     });
-  });
+ // });
 };
 
 const postDish = ({
