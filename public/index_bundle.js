@@ -130,7 +130,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var ipAddress = '52.53.171.255';
+var ipAddress = '54.183.251.99';
 
 var Menu =
 /*#__PURE__*/

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "react-dev": "webpack -d --watch --devtool cheap-module-source-map",
-    "server-dev": "nodemon ./server/index.js --watch",
+    "server-dev": "node ./server/index.js --watch",
     "start": "concurrently 'node database/populate.js' 'node ./server/index.js'",
     "seed": "node database/populate.js",
     "test": "jest --watchAll --coverage",

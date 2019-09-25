@@ -6,7 +6,7 @@ import sample from '../database/sampleData';
 import HideButton from './HideButton';
 import styles from './css_modules/app.css';
 
-const ipAddress = '52.53.171.255';
+const ipAddress = '54.183.251.99';
 
 class Menu extends React.Component {
   constructor(props) {

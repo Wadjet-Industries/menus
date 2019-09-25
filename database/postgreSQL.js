@@ -4,9 +4,9 @@
 const { Pool } = require('pg');
 const db = require('./config/postgreSQLconfig.js');
 
-const client = new Pool(db);
+const pool = new Pool(db);
 
-client.connect();
+//client.connect();
 
 const postgreSQLQuery = (query, callback) => {
   client.query(query, (err, result) => {
@@ -18,43 +18,49 @@ const postgreSQLQuery = (query, callback) => {
 };
 
 const getMenu = (resid, callback) => {
-  client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
+  pool.connect((err, client, done) => {
     if (err) {
-      callback(err);
+      console.log(err);
     }
-    const result = {};
-    for (let i = 0; i < results.rows.length; i++) {
-      const {
-        name,
-        description,
-        price,
-        category,
-        mealoption,
-      } = results.rows[i];
-      const formattedPrice = Number(price.slice(1));
-      if (result[mealoption]) {
-        if (result[mealoption][category]) {
-          result[mealoption][category][name] = {
-            description,
-            price: formattedPrice,
-          };
+    client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
+      if (err) {
+        callback(err);
+      }
+      done();
+      const result = {};
+      for (let i = 0; i < results.rows.length; i++) {
+        const {
+          name,
+          description,
+          price,
+          category,
+          mealoption,
+        } = results.rows[i];
+        const formattedPrice = Number(price.slice(1));
+        if (result[mealoption]) {
+          if (result[mealoption][category]) {
+            result[mealoption][category][name] = {
+              description,
+              price: formattedPrice,
+            };
+          } else {
+            result[mealoption][category] = {};
+            result[mealoption][category][name] = {
+              description,
+              price: formattedPrice,
+            };
+          }
         } else {
+          result[mealoption] = {};
           result[mealoption][category] = {};
           result[mealoption][category][name] = {
             description,
             price: formattedPrice,
           };
         }
-      } else {
-        result[mealoption] = {};
-        result[mealoption][category] = {};
-        result[mealoption][category][name] = {
-          description,
-          price: formattedPrice,
-        };
       }
-    }
-    callback(null, [result]);
+      callback(null, [result]);
+    });
   });
 };
 
@@ -91,5 +97,5 @@ const deleteDish = (resid, dish, callback) => {
 };
 
 module.exports = {
-  getMenu, postDish, updateDish, deleteDish, client,
+  getMenu, postDish, updateDish, deleteDish,
 };
