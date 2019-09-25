@@ -1,12 +1,12 @@
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-plusplus */
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 const db = require('./config/postgreSQLconfig.js');
 
-const client = new Client(db);
+const pool = new Pool(db);
 
-client.connect();
+// client.connect();
 
 const postgreSQLQuery = (query, callback) => {
   client.query(query, (err, result) => {
@@ -18,50 +18,89 @@ const postgreSQLQuery = (query, callback) => {
 };
 
 const getMenu = (resid, callback) => {
- // pool.connect((err, client, done) => {
- //   if (err) {
- //     console.log(err);
- //   }
-    client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
-      if (err) {
-        callback(err);
-      }
-     // done();
-      const result = {};
-      for (let i = 0; i < results.rows.length; i++) {
-        const {
-          name,
-          description,
-          price,
-          category,
-          mealoption,
-        } = results.rows[i];
-        const formattedPrice = Number(price.slice(1));
-        if (result[mealoption]) {
-          if (result[mealoption][category]) {
-            result[mealoption][category][name] = {
-              description,
-              price: formattedPrice,
-            };
+  pool
+    .connect()
+    .then((client) => client
+      .query(`SELECT * FROM dishes WHERE resid=${resid};`)
+      .then((results) => {
+        client.release();
+        const result = {};
+        for (let i = 0; i < results.rows.length; i++) {
+          const {
+            name,
+            description,
+            price,
+            category,
+            mealoption,
+          } = results.rows[i];
+          const formattedPrice = Number(price.slice(1));
+          if (result[mealoption]) {
+            if (result[mealoption][category]) {
+              result[mealoption][category][name] = {
+                description,
+                price: formattedPrice,
+              };
+            } else {
+              result[mealoption][category] = {};
+              result[mealoption][category][name] = {
+                description,
+                price: formattedPrice,
+              };
+            }
           } else {
+            result[mealoption] = {};
             result[mealoption][category] = {};
             result[mealoption][category][name] = {
               description,
               price: formattedPrice,
             };
           }
-        } else {
-          result[mealoption] = {};
-          result[mealoption][category] = {};
-          result[mealoption][category][name] = {
-            description,
-            price: formattedPrice,
-          };
         }
-      }
-      callback(null, [result]);
-    });
- // });
+        callback(null, [result]);
+      })
+      .catch((err) => {
+        client.release();
+        console.log(err.stack);
+      }));
+
+  // client.query(`SELECT * FROM dishes WHERE resid=${resid};`, (err, results) => {
+  //   if (err) {
+  //     callback(err);
+  //   }
+  //   const result = {};
+  //   for (let i = 0; i < results.rows.length; i++) {
+  //     const {
+  //       name,
+  //       description,
+  //       price,
+  //       category,
+  //       mealoption,
+  //     } = results.rows[i];
+  //     const formattedPrice = Number(price.slice(1));
+  //     if (result[mealoption]) {
+  //       if (result[mealoption][category]) {
+  //         result[mealoption][category][name] = {
+  //           description,
+  //           price: formattedPrice,
+  //         };
+  //       } else {
+  //         result[mealoption][category] = {};
+  //         result[mealoption][category][name] = {
+  //           description,
+  //           price: formattedPrice,
+  //         };
+  //       }
+  //     } else {
+  //       result[mealoption] = {};
+  //       result[mealoption][category] = {};
+  //       result[mealoption][category][name] = {
+  //         description,
+  //         price: formattedPrice,
+  //       };
+  //     }
+  //   }
+  //   callback(null, [result]);
+  // });
 };
 
 const postDish = ({
