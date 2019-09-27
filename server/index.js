@@ -4,6 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const compression = require('compression');
+const redis = require('redis')
 const {
   getMenu, postDish, updateDish, deleteDish,
 } = require('./controller/controller.js');
@@ -62,5 +63,6 @@ app.delete('/api/restaurant/:L/dish', (req, res) => {
 });
 
 app.listen(port, () => { console.log(`server ${port} is listening...`); });
+
 
 module.exports.app = app;
