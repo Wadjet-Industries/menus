@@ -1,7 +1,7 @@
 # Menu Service System Design
 Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL database, Redis caching. Designed to be horionztally scaled behind Nginx load balancer.
 
-![System Design Chart](https://imgur.com/VieyoAq)
+![System Design Chart](https://raw.githubusercontent.com/Wadjet-Industries/menus/master/Screen%20Shot%202019-10-01%20at%2010.34.58%20PM.png)
 
 ## Table of Contents
 
