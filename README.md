@@ -1,7 +1,7 @@
 # Menu Service System Design
 Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL database, Redis caching. Designed to be horionztally scaled behind Nginx load balancer.
 
-![System Design Chart](https://imgur.com/a/NBVyWO9)
+![System Design Chart](https://imgur.com/VieyoAq)
 
 ## Table of Contents
 
