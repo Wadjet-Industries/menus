@@ -1,5 +1,7 @@
 # Menu Service System Design
-Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL database, Redis caching. Designed to be horionztally scaled behind Nginx load balancer
+Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL database, Redis caching. Designed to be horionztally scaled behind Nginx load balancer.
+
+![System Design Chart](https://imgur.com/a/NBVyWO9)
 
 ## Table of Contents
 
@@ -10,13 +12,6 @@ Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL dat
 ## Usage
 
 > npm run server-dev
-
-## Requirements
-
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
-- Node 6.13.0
-- etc
 
 ## Development
 
