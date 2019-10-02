@@ -1,13 +1,5 @@
-# Project Name
-
-> Project description
-
-## Related Projects
-
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+# Menu Service System Design
+Backend design for menu microservice to handle 2200 RPS. Utilizes PostgreSQL database, Redis caching. Designed to be horionztally scaled behind Nginx load balancer
 
 ## Table of Contents
 
@@ -17,7 +9,7 @@
 
 ## Usage
 
-> Some usage instructions
+> npm run server-dev
 
 ## Requirements
 
@@ -33,8 +25,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
+npm run react-dev
 ```
 ## CRUD Endpoints
 ### GET: '/api/restaurant/:L/menu'
